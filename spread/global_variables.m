@@ -1,0 +1,12 @@
+global lamda10 lamda20 lamda3 mu1 mu2 fi T1;
+i1=0.01;
+i2=0;
+s=1-i1;
+r=0;
+lamda10=5;
+lamda20=2;
+lamda3=2;
+mu1=0.1;
+mu2=0;
+fi=0.9;
+T1=0.5;
