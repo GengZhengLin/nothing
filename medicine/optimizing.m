@@ -12,7 +12,7 @@ Aeq=[temp1 temp0;
      temp0 temp1];
 Beq=[M_total;
      V_total];
-options=optimset('Algorithm','sqp');
+options=optimset('Algorithm','interior-point');
 [X,Fval]=fmincon('cases_num',X0,A,B,Aeq,Beq,zeros(1,2*K),[],[],options);
 subplot(2,1,1);
 bar(X(1:K));
