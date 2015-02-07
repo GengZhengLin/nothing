@@ -1,0 +1,24 @@
+global lamda10 lamda20 lamda3 mu1 mu2 fi T1;
+i1=0.01;
+i2=0;
+s=1-i1;
+r=0;
+lamda10=5;
+lamda20=2;
+lamda3=2;
+mu1=0.1;
+mu2=0;
+fi=0.9;
+T1=0.7;
+q=0.5;
+t0=2;
+
+global M_total V_total K N nm pop;
+M_total=30;
+V_total=80;
+N=[10:10:130];
+K=length(N);
+nm=0.5;
+pop=[0.3:0.01:0.42;
+     0.5:-0.01:0.38;
+     0.1:0.01:0.22];

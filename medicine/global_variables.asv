@@ -12,3 +12,12 @@ fi=0.9;
 T1=0.5;
 q=0.5;
 t0=2;
+
+global M_total V_total K N nm pop;
+M_total=100;
+V_total=100;
+N=[10:10:130];
+K=length(N);
+nm=0.5;
+pop=[0.2:0.05:0.8;
+     0.];
