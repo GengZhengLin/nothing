@@ -1,0 +1,1 @@
+subplot(3,1,1)plot(T,cases(1));
