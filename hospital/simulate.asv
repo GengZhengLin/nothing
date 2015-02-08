@@ -40,9 +40,9 @@ i2(:,k+1)=i2(:,k)+T0*u1*i1(:,k)-fi*u2*i2(:,k)-(1-u2)*i2(:,k);
 end
 
 function update_I1(k)
-global I1 i1 T1_new mu1_new u1;
+global I1 T1 i1 T1_new mu1_new;
 k=k-1;
-I1(:,k+1)=I1(:,k)+(1-u1)*i1(:,k)-(T1_new(:,k)+mu1_new(:,k)).*I1(:,k);
+I1(:,k+1)=I1(:,k)+T1*I1(:,k)+(1-u1)*i1(:,k)-(T1_new(:,k)+mu1_new(:,k)).*I1(:,k);
 end
 
 function update_I2(k)
@@ -52,9 +52,9 @@ I2(:,k+1)=I2(:,k)+T1_new(:,k).*I1(:,k)+(1-u1)*i2(:,k)-mu2*I2(:,k)-kesai*I2(:,k);
 end
 
 function update_O(k)
-global O I1 mu1_new I2 mu2 b;
+global O I1 mu1_new I2 mu2_new b;
 k=k-1;
-O(:,k+1)=O(:,k)+I1(:,k).*mu1_new(:,k)+I2(:,k).*mu2-b*O(:,k);
+O(:,k+1)=O(:,k)+I1(:,k).*mu1_new(k)+I2(:,k).*mu2_new(:,k)-b*O(:,k);
 end
 
 function update_D(k)
@@ -65,7 +65,7 @@ end
 
 function update_mu1_new(k)
 global I1 mu1_new T M N;
-global mu1 nm;
+global mu1 T1 nm;
 k=k-1;
 if k<=T
     mu1_new(:,k+1)=mu1;
@@ -76,11 +76,11 @@ end
 
 function update_T1_new(k)
 global I1 T1_new M T N;
-global T1 nm yita;
+global mu1 T1 nm yita;
 k=k-1;
 if k<=T
     T1_new(:,k+1)=T1;
 else
-    T1_new(:,k+1)=T1-M(:,k)./(N.*I1(:,k))*T1+M(:,k)./(N.*I1(:,k))*(1-nm)*yita;
+    T1_new(:,k+1)=T1-M(:,k)./(N.*I1(:,k))*T1+M(:,k)./(N.*i1(:,k))*nm*yita;
 end
 end
