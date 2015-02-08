@@ -1,0 +1,5 @@
+function draw_result()
+global Z s i1 i2 r D;
+plot([1:Z],s(1,:),[1:Z],i1(1,:),[1:Z],i2(1,:),[1:Z],r(1,:),[1:Z],D(1,:));
+[s(1,:)' i1(1,:)' ]
+end
